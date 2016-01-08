@@ -1,0 +1,351 @@
+\documentclass[twocolumn]{article}
+\usepackage[UTF8, heading=true]{ctex}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\usepackage{titlesec}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{xifthen}
+\usepackage{flushend, cuted}
+\usepackage{float}
+ 
+ \geometry{left=2.2cm, right=2.2cm}
+\ctexset{
+section/format+ = \large, 
+subsection/format+ = \normalsize
+}
+\titlespacing*{\subsection} {0pt}{3ex }{1.5 ex }
+\setlength{\columnsep}{0.5cm}
+ 
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\newcommand{\equ}[1]{\begin{equation*}#1\end{equation*}}
+\newcommand{\rmd}{\mathrm{d}}
+\newcommand{\drgm}{\Delta_{\mathrm{r}}G_{\rmm}}
+\newcommand{\drgmB}{\Delta_{\mathrm{r}}G_{\mathrm{m, B}}}
+\newcommand{\drhm}{\Delta_{\mathrm{r}}H_{\rmm}}
+\newcommand{\drsm}{\Delta_{\mathrm{r}}S_{\rmm}}
+\newcommand{\dfgm}{\Delta_{\mathrm{f}}G_{\rmm}}
+\newcommand{\dfgmB}{\Delta_{\mathrm{f}}G_{\mathrm{m, B}}}
+\newcommand{\dfhm}{\Delta_{\mathrm{f}}H_{\rmm}}
+\newcommand{\dfsm}{\Delta_{\mathrm{f}}S_{\rmm}}
+\newcommand{\nup}{\nu_{+}}
+\newcommand{\num}{\nu_{-}}
+\newcommand{\MnuAnu}{\rmm_{\nup}\mathrm{A}_{\num}}
+\newcommand{\aq}{\mathrm{aq}}
+\newcommand{\eq}{^{\mathrm{eq}}}
+\newcommand{\rmB}{\mathrm{B}}
+\newcommand{\rmm}{\mathrm{m}}
+\newcommand{\subB}{_{\rmB}}
+\newcommand{\subm}{_{\rmm}}
+\newcommand{\std}{^{\circleddash}}
+\newcommand{\supnuB}{^{\nu\subB}}
+\newcommand{\supinf}{^{\infty}}
+\newcommand{\nuB}{\nu\subB}
+\newcommand{\bstd}{b\std}
+\newcommand{\pstd}{p\std}
+\newcommand{\xkh}[1]{\left(#1\right)}
+\newcommand{\pf}{^{2}}
+\renewcommand{\dfrac}[2]{\frac{\rmd #1}{\rmd #2}}
+
+\title{物理化学期末整理}
+\author{基科22\quad 唐如麟\quad 2012010395}
+\begin{document}
+
+\maketitle
+\raggedend
+\setcounter{section}{4} 
+\section{化学平衡}
+\subsection{化学反应的平衡条件}
+\equ{\drgm\eq=\sum\subB\nu\subB\mu\subB\eq=0}
+\subsection{化学反应的标准平衡常数}
+\equ{K\std=\prod\subB\xkh{\frac{p\subB\eq}{p\std}}\supnuB}
+\equ{\drgm\std=-RT\ln K\std}
+\subsection{化学反应等温式}
+\equ{\drgm=-RT\ln K\std+RT\ln J}
+\equ{\begin{cases}\begin{aligned}
+\text{当}J<K\std\text{时, }&\drgm<0\text{, 正向反应自动进行；}\\
+\text{当}J>K\std\text{时, }&\drgm>0\text{, 逆向反应自动进行；}\\
+\text{当}J=K\std\text{时, }&\drgm=0\text{, 反应达到平衡。}
+\end{aligned}
+\end{cases}}
+\subsection{实际气体反应的标准平衡常数}
+\equ{K\std=\prod\subB\xkh{f\subB\eq / p \std}\supnuB}
+\subsection{液、固凝聚相混合物反应的标准平衡常数}
+\equ{K\std=\prod\subB\xkh{a_{x, \rmB}\eq}\supnuB}
+\par 如果反应混合物是理想的, $a_{x, \rmB}=\gamma\subB x\subB=x\subB$, 
+\equ{K\std=\prod\subB\xkh{x\subB\eq}\supnuB}
+\subsection{溶液中反应的标准平衡常数}
+\equ{K\std=\prod\subB\xkh{a_{b, \rmB}\eq}\supnuB}
+\par 若溶液是理想的, 
+\equ{K\std=\prod\subB\xkh{\frac{b\subB\eq}{\bstd}}\supnuB}
+\subsection{多相反应的标准平衡常数}
+\equ{K\std=\prod_{\rmB \xkh{\mathrm{g}}}\xkh{\frac{p\subB\eq}{\pstd}}\supnuB}
+\subsection{由反应的$\drhm\std$和$\drsm\std$计算$\drgm\std$}
+\equ{\drgm\std=\drhm\std-T\drsm\std}
+\equ{\drhm\std\xkh{T_{2}}=\drhm\std\xkh{T_{1}}+\int_{T_{1}}^{T_{2}}\Delta_{\mathrm{r}}C_{p, \rmm}\, \rmd T}
+\equ{\drsm\std\xkh{T_{2}}=\drsm\std\xkh{T_{1}}+\int_{T_{1}}^{T_{2}}\frac{\Delta_{\mathrm{r}}C_{p, \rmm}\, \rmd T}{T}}
+\subsection{由标准生成Gibbs函数计算$\drgm\std$}
+\equ{\drgm\std=\sum\subB\nuB\drgmB\std}
+\subsection{温度对化学平衡的影响}
+\equ{\dfrac{\ln K\std}{T}=\frac{\drhm\std}{RT\pf}}
+\equ{\ln\frac{K\std\xkh{T_{2}}}{K\std\xkh{T_{1}}}=\frac{\drhm\std}{R}\xkh{\frac{1}{T_{1}}-\frac{1}{T_{2}}}}
+\subsection{惰性气体对平衡组成的影响}
+在等温、等压下加入惰性气体, 相当于减小压强。在等温、等容条件下充入惰性气体, 不会引起平衡的移动。
+\section{电化学}
+\subsection{Faraday电解定律}
+\equ{Q=nF}
+\subsection{离子的电迁移率和迁移数}
+\equ{v\subB=u\subB E}
+\equ{t_{+}=\frac{Q_{+}}{Q}, \quad t_{-}=\frac{Q_{-}}{Q}}
+\equ{t_{+}+t_{-}=1}
+\equ{\frac{t_{+}}{t_{-}}=\frac{u_{+}}{u_{-}}}
+\subsection{电解质溶液的电导和电导率}
+\equ{G=\frac{1}{R}}
+\equ{G=\kappa \frac{A}{l}}
+\subsection{电解质溶液的摩尔电导率}
+\equ{\Lambda\subm=\frac{\kappa}{c}}
+\equ{\Lambda\subm=\alpha\xkh{u_{+}+u_{-}}F}
+\subsection{离子独立迁移定律及离子的摩尔电导率}
+\equ{\Lambda\subm\supinf=\lambda_{+}\supinf+\lambda_{-}\supinf}
+\equ{\lambda\supinf=u\supinf F}
+\subsection{弱电解质电离常数的测定}
+\equ{\alpha=\frac{\Lambda\subm}{\Lambda\subm\supinf}}
+\subsection{难溶盐溶度积的测定}
+\equ{\Lambda\subm=\Lambda\subm\supinf}
+\subsection{强电解质溶液的活度和活度系数}
+\equ{a=a_{+}^{\nu_{+}}\cdot a_{-}^{\nu_{-}}}
+\equ{\begin{cases}\begin{aligned}
+a_{\pm}=&\xkh{a_{+}^{\nup}\cdot a_{-}^{\num}}^{1/\nu}\\
+\gamma_{\pm}=&\xkh{\gamma_{+}^{\nup}\cdot \gamma_{-}^{\num}}^{1/\nu}\\
+b_{\pm}=&\xkh{b_{+}^{\nup}\cdot b_{-}^{\num}}^{1/\nu}
+\end{aligned}
+\end{cases}}
+\equ{a_{\pm}=\gamma_{\pm}b_{\pm}/b\std}
+\equ{a=a^{\nu}_{\pm}}
+\equ{I=\frac{1}{2}\sum\subB b\subB z\subB^{2}}
+\equ{\ln \gamma_{\pm}=-1.171\left|z_{+}z_{-}\right|\sqrt{\{I\}}}
+\subsection{电解质溶液中离子的热力学性质}
+\equ{
+\begin{cases}
+\begin{aligned}
+&\dfgm\std\xkh{\mathrm{H}^{+}, \mathrm{aq}}=0\\
+&\dfhm\std\xkh{\mathrm{H}^{+}, \mathrm{aq}}=0\\
+&S_{\rmm}\std\xkh{\mathrm{H}^{+}, \mathrm{aq}}=0\\
+&C_{p, \rmm}\std\xkh{\mathrm{H}^{+}, \mathrm{aq}}=0\\
+\end{aligned}
+\end{cases}
+}
+
+\equ{\begin{cases}\begin{aligned}
+& \dfgm\std\xkh{\MnuAnu, \aq}=\nup\Delta_{\mathrm{f}}G_{\rmm, +}\std+\num\Delta_{\mathrm{f}}G_{\rmm, -}\std\\
+& \dfhm\std\xkh{\MnuAnu, \aq}=\nup\Delta_{\mathrm{f}}H_{\rmm, +}\std+\num\Delta_{\mathrm{f}}H_{\rmm, -}\std\\
+& S\subm\std\xkh{\MnuAnu, \aq}=\nup S_{\rmm, +}\std+\num S_{\rmm, -}\std\\
+& C_{p, \rmm}\std\xkh{\MnuAnu, \aq}=\nup C_{p, \rmm, +}\std+\num C_{p, \rmm, -}\std
+\end{aligned}
+\end{cases}
+}
+\subsection{电化学势判据}
+\equ{\widetilde\mu\subB=\mu\subB+z\subB F \Phi}
+\equ{\begin{cases}\begin{aligned}
+\widetilde\mu\subB\xkh{\alpha}&>\widetilde\mu\subB\xkh{\beta}, \quad &\alpha\to\beta\\
+\widetilde\mu\subB\xkh{\alpha}&<\widetilde\mu\subB\xkh{\beta}, &\beta\to\alpha\\
+\widetilde\mu\subB\xkh{\alpha}&=\widetilde\mu\subB\xkh{\beta}, &\alpha\rightleftharpoons\beta
+\end{aligned}
+\end{cases}}
+相平衡的条件
+\equ{\widetilde\mu\subB\xkh{\alpha}=\widetilde\mu\subB\xkh{\beta}}
+在电化学系统中, 任意反应的平衡条件
+\equ{\sum\subB\nuB\widetilde\mu\subB=0}
+\subsection{化学能与电能的相互转换}
+可逆电池
+\equ{-\drgm=zFE}
+\subsection{电池的习惯表示法}
+\begin{enumerate}
+\item 阳极写在左边, 阴极写在右边。
+\item 构成电池的物质都要标明状态。除注明聚集状态外, 气体还应注明压力, 溶液中的物质应注明活度。
+\item 相界面用符号``|"表示, 盐桥用符号``||"表示。
+\end{enumerate}
+注：在不至于造成误解时物质的聚集状态可以不写, 如果只是为了定性的表示电池而不进行任何定量计算, 具体的压力和活度数据也可以不写。
+\subsection{电极反应和电池反应}
+写电极反应时应注意以下问题：
+\begin{enumerate}
+\item 阳极反应和阴极反应的电荷数应该相同。
+\item 将离子合并写作电解质时应保证不改变物质本身。
+\item 方程式两端的同种物质, 只有状态相同时才能对消。
+\end{enumerate}
+\subsection{Nernst公式}
+\equ{E=E\std-\frac{RT}{zF}\ln J}
+\subsection{标准氢电极}
+\equ{\varphi\std\xkh{\mathrm{H}^{+}|\mathrm{H}_{2}}\equiv 0}
+\subsection{任意电极的电极电势}
+\equ{\text{标准氢电极}||\text{任意电极x}}
+\equ{\varphi=E}
+\equ{\begin{cases}\begin{aligned}
+& \drgm=-zF\varphi\\
+& \drgm\std=-zF\varphi\std\\
+& \varphi=\varphi\std-\frac{RT}{zF}\ln J
+\end{aligned}\end{cases}}
+\equ{由电极电势计算电动势}
+\equ{E=\varphi_{\text{阴}}-\varphi_{\text{阳}}}
+\equ{E\std=\varphi_{\text{阴}}\std-\varphi_{\text{阳}}\std}
+\subsection{液接电势的产生与计算}
+\equ{E=E_{\text{理论}}+E_{\mathrm{l}}}
+\equ{E_{\mathrm{l}}=\xkh{t_{+}-t_{-}}\frac{RT}{F}\ln \frac{\xkh{b\gamma_{\pm}}_{\text{阳}}}{\xkh{b\gamma_{\pm}}_{\text{阴}}}}
+\equ{E_{\mathrm{l}}=\xkh{\frac{t_{+}}{z_{+}}-\frac{t_{-}}{|z_{-}|}}\frac{RT}{F}\ln \frac{\xkh{b\gamma_{\pm}}_{\text{阳}}}{\xkh{b\gamma_{\pm}}_{\text{阴}}}}
+
+规定$E_{\mathrm{l}}$等于界面右侧的电位减去界面左侧的电位。
+\subsection{膜平衡与膜电势}
+\equ{E\subm=\frac{RT}{z\subB F}\ln \frac{a_{\mathrm{B}, \text{左}}}{a_{\mathrm{B}, \text{右}}}}
+
+规定膜电势等于膜右侧的电位减去膜右侧的电位。
+\subsection{求取化学反应的Gibbs函数变和平衡常数}
+\equ{K\std=\exp\frac{zFE\std}{RT}}
+\subsection{测定化学反应的熵变}
+\equ{\drsm=zF\xkh{\frac{\partial E}{\partial T}}_{p}}
+\subsection{测定化学反应的焓变}
+\equ{\drhm=-zFE+zFT\xkh{\frac{\partial E}{\partial T}}_{p}}
+\equ{Q_{r}=zFT\xkh{\frac{\partial E}{\partial T}}_{p}}
+\subsection{超电势}
+\equ{\eta=\left| \varphi_{\text{ir}}-\varphi_{\text{r}} \right|}
+\subsection{电解池中的电极反应}
+在阳极上按照析出电势从小到大的顺序析出, 而在阴极上按照电势从大到小的顺序依次析出。
+\section{表面与胶体化学基础}
+\subsection{比表面能}
+\equ{W'=-\int_{A_{1}}^{A_{2}}\gamma\, \rmd A}
+\equ{\gamma=\xkh{\frac{\partial G}{\partial A}}_{T, p, n\subB}}
+\equ{\rmd G=-S\, \rmd T+V\, \rmd P+\sum\subB\mu\subB\, \rmd n \subB+\gamma\, \rmd A}
+\subsection{弯曲表面的附加压力和Young-Laplace公式}
+\equ{\Delta P=\frac{2\gamma}{r}}
+注意对于液膜构成的气泡, 因为存在内、外两个表面且曲率半径大约相同, 所以泡内的附加压力应为
+\equ{\Delta P=\frac{4\gamma}{r}}
+\subsection{弯曲表面的饱和蒸气压和Kelvin方程}
+\equ{\ln \frac{p_{r}}{p_{0}}=\frac{2\gamma M}{RT\rho r}}
+\subsection{溶液表面的吸附现象和Gibbs吸附公式}
+\equ{\Gamma=\frac{c\subB}{RT}\xkh{\dfrac{\gamma}{c\subB}}_{T}}
+$\Gamma$是指在1m$^{2}$表面上所含的溶质超出体相中同剂量溶质所溶解的溶质的量。
+\subsection{表面活性剂及其应用}
+\equ{\gamma_{\mathrm{s-g}}=\gamma_{\mathrm{l-s}}+\gamma_{\mathrm{l-g}}\cos\theta}
+\subsection{物理吸附和化学吸附}
+物理吸附往往低温时容易发生, 表现为单分子层或多分子层吸附。化学吸附在高温时速率更大, 而且很难脱附。
+\subsection{(固体)吸附量和吸附曲线}
+\equ{\Gamma=V/m}
+\subsection{(固体)Langmuir吸附方程}
+\equ{\Gamma=\Gamma_{\mathrm{max}}\theta=\Gamma_{\mathrm{max}}\frac{bp}{1+bp}}
+\equ{V=V_{\mathrm{max}}\frac{bp}{1+bp}}
+\subsection{(固体)BET吸附方程}
+\equ{V=\frac{V_{\mathrm{max}}cp}{\xkh{p_{0}-p}\left[1+\xkh{c-1}p/p_{0}\right]}}
+\subsection{(固体)Freundlich方程}
+\equ{\Gamma=K_{F}p^{1/n}}
+\subsection{扩散现象}
+\equ{D=\frac{RT}{L}\frac{1}{6\pi \eta r }}
+\subsection{沉降和沉降平衡}
+\equ{v=\frac{2r\pf{\xkh{\rho-\rho_{0}}g}}{9\eta}}
+\subsection{溶胶的光学性质}
+\equ{I=K\frac{\bar{N}V\pf}{\lambda^{4}}I_{0}}
+\subsection{电动现象}
+\equ{v=\frac{\varepsilon E\xi}{c\pi\eta}}
+\section{化学动力学基础}
+\subsection{化学反应速率}
+\equ{r=\frac{1}{\nuB}\dfrac{c\subB}{t}}
+\subsection{质量作用定律}
+元反应的速率方程
+\equ{r=kc_{A}^{a}c_{B}^{b}}
+\subsection{反应级数与速率系数}
+\equ{r=kc_{A}^{\alpha}c_{B}^{\beta}\cdots}
+\equ{n=\alpha+\beta+\gamma+\cdots}
+\subsection{具有简单级数的化学反应}
+\equ{t_{1/2}=Aa^{1-n}}
+\subsection{$r=kc_{A}^{n}$型反应级数的测定}
+\begin{enumerate}
+\item 方案一
+\begin{enumerate}
+\item 积分法: 作图法，尝试法，半衰期法
+\item 微分法
+\end{enumerate}
+\item 方案二
+\end{enumerate}
+% \onecolumn
+\begin{table*}[hbtp!]
+\centering
+\caption{几种具有简单级数的反应}
+\begin{tabular}[t]{c|cccc}
+\hline
+级数$n$ & 反应类型 & 速率方程(微分式)&速率方程(积分式)&半衰期 \\
+\hline
+0 & A$\to$ P & $-\displaystyle\dfrac{c_{\mathrm{A}}}{t}=k$ & $c_{\mathrm{A}}=-kt+a$ & $\displaystyle t_{1/2}=\frac{a}{2k}$ \\
+\hline
+1 & A$\to$ P & $-\displaystyle\dfrac{c_{\mathrm{A}}}{t}=kc_{\mathrm{A}}$ & $\ln\{c_{\mathrm{A}}\}=-kt+\ln\{a\}$ & $t_{1/2}=\displaystyle\frac{\ln 2}{k}$\\
+\hline
+\multirow{2}{*}{2} & \tabincell{l}{A+B$\to$P \\ (a=b)\\或A$\to$P} &$-\displaystyle\dfrac{c_{\mathrm{A}}}{t}=kc_{\mathrm{A}}c_{\mathrm{B}}=kc_{\mathrm{A}}\pf$ & $\displaystyle\frac{1}{c_{\mathrm{A}}}=kt+\frac{1}{a}$ & $\displaystyle t_{1/2}=\frac{1}{ka}$\\
+\cline{2-5}
+& \tabincell{l}{A+B$\to$P\\ (a$\neq$b)} & $-\displaystyle\dfrac{c_{\mathrm{A}}}{t}=kc_{\mathrm{A}}c_{\mathrm{B}}$ & $\displaystyle\ln\frac{c_{\mathrm{A}}}{c_{\mathrm{B}}}=\xkh{a-b}kt+\ln\frac{a}{b}$ & 无\\
+\hline
+\end{tabular}
+\end{table*}
+
+\subsection{Arrhenius经验公式}
+\equ{k=A\exp\xkh{-\frac{E}{RT}}}       
+\equ{\ln\{k\}=-\frac{E}{RT}+\ln\{A\}}
+\equ{\dfrac{\ln\{k\}}{T}=\frac{E}{RT\pf}}
+\subsection{气体分子的碰撞频率}
+\equ{Z_{\mathrm{AB}}=\bar{N}_{\mathrm{A}}\bar{N}_{\mathrm{B}}d_{\mathrm{AB}}\pf\sqrt{\frac{8\pi RT}{M^{*}}}}
+\equ{Z_{\mathrm{AA}}=2\bar{N}_{\mathrm{A}}\pf d_{\mathrm{A}}\pf\sqrt{\frac{\pi RT}{M_{A}}}}
+\subsection{速率系数的计算}
+\equ{k=Ld_{\mathrm{AB}}\pf\sqrt{\frac{8\pi RT}{M^{*}}}\exp\xkh{-\frac{E_{c}}{RT}}}
+\equ{k=2Ld_{\mathrm{A}}\pf\sqrt{\frac{\pi RT}{M_{\mathrm{A}}}}\exp\xkh{-\frac{E_{c}}{RT}}}
+\subsection{速率系数的计算(过渡状态理论)}
+\equ{k=\frac{k_{\mathrm{B}}T}{h}K^{\neq}\xkh{c\std}^{1-n}}
+\equ{k=\frac{k_{\mathrm{B}}T}{h}\xkh{c\std}^{1-n}\exp\xkh{\frac{\Delta^{\neq }S_{\mathrm{m}}}{R}}\exp\xkh{{-\frac{\Delta^{\neq} H_{\mathrm{m}}}{RT}}}}
+\subsection{对峙反应}
+\equ{\ln\frac{k_{1}a}{k_{1}a-\xkh{k_{1}+k_{2}}x}=\xkh{k_{1}+k_{2}}t}
+\subsection{平行反应}
+对于反应物来说, 相当于一个以$\xkh{k_{1}+k_{2}}$为速率系数的一级反应。
+\equ{\frac{x}{y}=\frac{k_{1}}{k_{2}}}
+\subsection{连续反应}
+\equ{x=a\exp\xkh{-k_{1}t}}
+\equ{y=\frac{k_{1}a}{k_{2}-k_{1}}\left[ \exp\xkh{-k_{1}t}-\exp\xkh{-k_{2}t} \right]}
+\equ{z=a\left[ 1-\frac{k_{2}}{k_{2}-k_{1}}\exp\xkh{-k_{1}t}+\frac{k_{1}}{k_{2}-k_{1}}\exp\xkh{-k_{2}t} \right]}
+\subsection{弛豫过程和弛豫方程}
+\equ{\Delta c_{\mathrm{A}}=\Delta c_{\mathrm{A}, 0}\exp\left[ -\xkh{k_{1}+k_{2}}t \right]}
+\equ{\Delta c_{\mathrm{A}}=\Delta c_{\mathrm{A}, 0}\exp\xkh{-\frac{t}{\tau}}}
+\subsection{催化剂的活性}
+\equ{a=\frac{m_{\mathrm{p}}}{t\,m_{\mathrm{c}}}}
+\equ{a=\frac{k}{A}}
+\subsection{溶剂介电常数对离子反应的影响}
+\equ{\ln \frac{k}{k_{0}}=-\frac{Le\pf}{\varepsilon RTa}z_{\mathrm{A}}z_{\mathrm{B}}}
+\equ{\xkh{\frac{\partial \ln\{k\}}{\partial \varepsilon}}_{T}=\frac{Le\pf}{\varepsilon\pf RTa}z_{\mathrm{A}}z_{\mathrm{B}}}
+\subsection{离子强度对离子反应的影响}
+\equ{\ln\frac{k}{k_{0}}=Cz_{\mathrm{A}}z_{\mathrm{B}}\sqrt{I}}
+\subsection{光化学第二定律}
+\equ{\phi=\frac{\text{起反应的反应物分子数}}{\text{吸收的光子数}}}
+\subsection{Beer-Lambert定律}
+\equ{I=I_{0}\exp\xkh{-\varepsilon lc}}
+\equ{I_{a}=I_{0}\left[ 1-\exp\xkh{-\varepsilon lc} \right]}
+\subsection{光化学平衡}
+\equ{\drgm\std\neq -RT\ln K\std}
+\equ{\frac{k_{1}}{k_{2}}\neq K\std\xkh{c\std}^{\sum\nuB}}
+\equ{\frac{k_{1}}{k_{2}}\neq K\std\xkh{\frac{p\std}{RT}}^{\sum\nuB}}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
